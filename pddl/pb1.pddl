@@ -22,9 +22,13 @@
 
     (OnIsland agent island1)
 
+    (OnIsland plank island1)
+    (OnIsland plank island2)
+
     (IslandFree island2)
 
-    (Connected plank island1 island2)
+    (Connected island1 island2)
+    (Connected island2 island1)
   )
 
   (:goal

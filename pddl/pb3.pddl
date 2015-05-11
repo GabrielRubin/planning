@@ -24,13 +24,25 @@
 
     (OnIsland agent island1)
 
+    (OnIsland plank island1)
+    (OnIsland plank island2)
+
     (IslandFree island2)
 
     (IslandFree island3)
 
     (Free agent)
 
-    (Connected plank island1 island2)
+    (Connected island1 island2)
+    (Connected island2 island1)
+
+    (not (Connected island2 island3))
+    (not (Connected island3 island2))
+
+    (Adjacent island1 island2)
+    (Adjacent island2 island1)
+    (Adjacent island2 island3)
+    (Adjacent island3 island2)
   )
 
   (:goal
@@ -39,9 +51,11 @@
 
       (OnIsland agent island3)
 
-      (not (Connected plank island1 island2))
+      (Connected island2 island3)
+      (Connected island3 island2)
 
-      (Connected plank island2 island3)
+      (not (Connected island1 island2))
+      (not (Connected island1 island2))
     )
   )
 )

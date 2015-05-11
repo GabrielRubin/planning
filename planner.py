@@ -40,7 +40,7 @@ class Planner:
 if __name__ == "__main__":
     planner = Planner()
     domain = os.path.join(PATH, "pddl", "planks.pddl")
-    for i in range(4):
+    for i in range(5):
         print "Problem " + str(i+1)
         problem = os.path.join(PATH, "pddl", "pb" + str(i+1) + ".pddl")
         planner.solve(domain, problem)
