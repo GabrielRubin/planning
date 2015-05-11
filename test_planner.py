@@ -48,6 +48,16 @@ class Test_Planner(unittest.TestCase):
         planner.solve(domain, problem)
         self.assertIsNotNone(planner.plan)
         self.assertEqual(len(planner.plan), len(PLANS[index-1]))
+
+        resultMine = ""
+        resultHis = ""
+
+        for i in range(len(planner.plan)):
+            resultMine += " - " + planner.plan[i][0]
+        for i in range(len(planner.plan)):
+            resultHis += " - " + PLANS[index-1][i]
+        print(resultMine)
+        print(resultHis)
         for i in range(len(planner.plan)):
             self.assertEqual(planner.plan[i][0], PLANS[index-1][i])
 

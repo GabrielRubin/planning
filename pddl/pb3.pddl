@@ -2,7 +2,7 @@
 ; Problem file
 ; --------------------
 
-(define (problem pb1)
+(define (problem pb3)
   (:domain planks)
 
   (:requirements :strips)
@@ -11,6 +11,7 @@
     agent
     island1
     island2
+    island3
     plank
   )
 
@@ -18,24 +19,29 @@
     (AGENT agent)
     (ISLAND island1)
     (ISLAND island2)
+    (ISLAND island3)
     (PLANK plank)
 
     (OnIsland agent island1)
 
     (IslandFree island2)
 
+    (IslandFree island3)
+
+    (Free agent)
+
     (Connected plank island1 island2)
   )
 
   (:goal
     (and
-      (IslandFree island1)
-      (not (OnIsland agent island1))
-      (OnIsland agent island2)
+      (Free agent)
+
+      (OnIsland agent island3)
+
+      (not (Connected plank island1 island2))
+
+      (Connected plank island2 island3)
     )
   )
 )
-
-; PLAN
-; do_example(b,c)
-; do_example(a,b)
